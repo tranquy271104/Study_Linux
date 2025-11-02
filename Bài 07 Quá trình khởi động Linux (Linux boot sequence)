@@ -1,0 +1,36 @@
+Khởi động Phần cứng & BIOS
+  - Bật máy tính
+  - BIOS kiểm tra 
+      + Phần cứng
+      + Thiết bị đầu vào/ra (I/O)
+  - Bắt đầu quá trình khởi động máy tính
+Bộ tải khởi động (Boot Loader)
+  - Sử dụng chương trình GRUB
+      + Grand Unified Boot Loader (Viết tắt)
+      + Có trong các distro mới (CentOS 7,8,9)
+  - Tìm Boot Sector
+      + Phần đầu tiên của ổ cứng
+      + Chứa dữ liệu cần thiết để khởi động
+Tải Kernel & Initramfs
+  - Boot loader tải Linux Kernel
+  - Tải initrd/initramfs (edram dis)
+      + Chứa các chương trình điều khiển thiết bị (driver)
+  - Tải trình điều khiển (Driver)
+  - Gần File System từ ổ cứng 
+Kernel hoạt động
+  - Thiết đặt xong và sẵn sàng
+  - Khởi động tiến trình đầu tiên: Initialization System (Systemd/Init)
+  - Chức năng chính của Kernel
+      + xử lý Đầu vào/Đầu ra (I/O)
+      + Tương tác với Phần cứng
+      + Bắt đầu các chương trình/dịch vụ (Service/Daemon)
+  - Kernel gần File System của máy tính
+  - Dữ liệu RAM không cần thiết bị xóa
+  - Tải các dịch vụ để máy tính đạt trạng thái sử dụng được
+Kiểm tra Nhật ký khởi động (Logs)
+  - Log không ổn định (Bị xóa khi khởi động lại)
+  - Log được tạo từ Bộ đệm Vòng Kernel (Kernel Ring Buffer)
+      + Khu vực RAM nơi kernel ghi thông báo hệ thống
+  - Các lệnh xem log
+      + dmesg (Xem bộ đệm vòng nhân)
+      + journalctl -k (Xem bộ đệm vòng nhân trong systemd)
