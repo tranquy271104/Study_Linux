@@ -1,0 +1,36 @@
+Cơ Chế Quản Lý Thiết Bị
+  - udev (Trình Quản lý Thiết Bị)
+      + Phát hiện ổ cứng mới kết nối
+      + Chuyển thông tin về ổ cứng/phần cứng  
+      + Thêm phần cứng dưới dạng file vào /dev
+      + Sử dụng dbus để thông báo 
+  - dbus (Dịch Vụ Truyền Thông Điệp)
+      + Chuyển thông tin mọi thứ trong hệ điều hành
+      + Gửi thông báo điệp dữ liệu giữa các ứng dụng
+      + Đường dẫn thông tin về hệ thống
+  - pudo f system /dev
+      + Chứa bộ xử lý thực sử cho thiết bị
+      + Chứa thông tin tất cả phần cứng kết nối
+      + Phần cứng được udev thêm dưới dạng file 
+      + Ví dụ: File VGA chứa thông tin card màn hình 
+Các Lệnh Xem Thông Tin Phần Cứng
+  - lsblk (Liệt kê block devices/ổ cứng)
+      + Hiển thị thông tin ổ cứng
+      + Sử dụng tham số -f để xem bản thông tin (tên, mount point, ID)
+  - lspci (Liệt kê thiết bị PCI)
+      + Hiển thị thông tin thiết bị PCI (USB controller, card mạng)
+      + Tham số -k: Xem kernel driver đang sử dụng
+      + Tham số -v: Xem thông tin chi tiết từng thành phần
+  - lsusb (Liệt kê thiết bị USB)
+      + Hiển thị thông tin thiết bị USB
+      + Tham số -t: Xem thông tin chi tiết theo kiểu cây (tree)
+  - lscpu (Liệt kê CPU)
+      + Hiển thị thông tin vi xử lý CPU (hãng, model name, số core)
+Truy Cập Thông Tin Phần Cứng (/dev)
+  - Lệnh ls /dev: Xem file/thư mục trong /dev
+  - Thông tin thiết bị trong /dev
+      + nvme*: Thông tin phân vùng ổ cứng
+      + dri: Thông tin liên quan card màn hình (ví dụ: card0)
+      + cpu: Thông tin chỉ tiết CPU (ví dụ: 0, 1 là 2 core)
+  - File trong /dev được ghi dưới dạng binary (dạng số)
+  - Các lệnh (lsblk, lspci) đọc từ /dev và hiển thị định dạng con người xem được 
