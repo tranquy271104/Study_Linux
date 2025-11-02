@@ -1,0 +1,47 @@
+Khái Niệm Kernel & GNU/Linux  
+  - Hệ Điều Hành Linux/GNU
+      + Linux Kernel
+      + GNU (Công cụ, Bash, Shell, Tiện ích)
+  - Kernel là Open Source
+  - Chức Năng Kernel
+      + Giao tiếp Phần Cứng (Ổ cứng, RAM, Mạng)
+      + Giao tiếp Subsystem (Hệ thống con)
+      + Xử lý Tương tác
+      + Quản lý Bộ nhớ
+      + Quản lý Thiết bị Phần cứng
+  - Kernel Nguyên Khối (Monolithic)
+      + Xử lý mọi tương tác/quản lý
+      + Không cần khởi động lại (reboot) khi thêm chức năng
+      + Có khả năng Tự động Tải/Gỡ bỏ (Load/Unload) Driver mới 
+Kernel Modules
+  - Chức năng bổ sung cho Kernel
+  - Có thể được Tải (Load) và Gỡ bỏ (Remove)
+  - Quan trọng với System Administrator
+  - Thường xử lý Module của bên thứ ba (Third-party drivers)
+Các Lệnh Quản Lý Kernel & Module
+  - uname 
+      + Hiển thị thông tin Kernel đang chạy
+      + uname -m (Hardware platform: x86/64)
+      + uname -r (Kernel Version + Hardware platform)
+      + uname -a (Tất cả thông tin)
+  - lsmod (List Modules)
+      + Liệt kê các Module đã được tải
+      + Hiển thị: Tên Module, Kích cỡ (Size), Sử dụng bởi (Used by)
+  - modinfo (Module Information)
+      + Hiển thị thông tin Module cụ thể (vd: modinfo cdrom)
+      + Xem Tên File (Filename) và thư mục lưu trữ
+  - modprobe
+      + Tải (Load) Module
+      + Gỡ bỏ (Unload) Module: modprobe -r [module]
+  - rmmod (Remove Module)
+      + Gỡ bỏ module khỏi hệ điều hành
+      + Phải Gỡ bỏ Thành phần Phụ thuộc trước (vdL rmmod sr_mod)
+Thực Hành (Demo)
+  - Sử dụng máy Lab (Không phải máy chủ công việc)
+  - Thực hiện trên máy chủ Unix/Linux
+  - Quản lý Module CD-ROM (ví dụ: cdrom, sr_mod)
+      + Kiểm tra module cdrom/sr_mod bằng lsmod
+      + Xem thông tin chi tiết (modinfo cdrom)
+      + Gỡ bỏ thành phần phụ thuộc (rmmod sr_mod)
+      + Gỡ bỏ module (modprobe -r cdrom)
+      + Tải lại module (modprobe cdrom)
