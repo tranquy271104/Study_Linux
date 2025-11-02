@@ -1,0 +1,49 @@
+Định nghĩa Pseudo File Systems 
+  - Là gì ?
+      + Giả (pseudo/Fake/Not real)
+      + Không tồn tại trên ổ cứng vật lý
+  - Tồn tại 
+      + Chỉ tồn tại trong RAM
+      + Khi hệ điều hành đang chạy
+  - Xóa sạch 
+      + Khi RAM được làm sạch
+      + Khi khởi động lại máy tính (RAM là bộ nhớ tạm)
+  - Khởi tạo lại
+      + Kernel tạo PFS mới khi khởi động
+      + Sử dụng cùng thư mục, chứa thông tin Kernel dùng tại thời điểm đó
+Khái niệm File System UNIX/Linux
+  - Phương pháp/Cấu trúc dữ liệu HĐH theo dõi tập tin
+  - Mọi thứ được xem là file
+      + Ổ cứng
+      + Card mạng
+      + Bàn phím
+      + Màn hình
+      + Tiến trình (Process)
+Thư mục PFS quan trọng (LPI1)
+  - /proc (Process File System)
+      + Chứa thông tin về tiến trình (Process) đang chạy
+      + Thông tin được liệt kê theo Process ID (PID)
+      + Cùng chứa thông tin phần cứng
+      + Nội dung là file/thư mục tạo theo thời gian thực
+      + ví dụ nội dung: 
+          Thư mục số (PID)
+            - Liên kết với tiến trình đang chạy
+            - Ví dụ: CD 1 (Process ID 1 - init process)
+            - Xem cmdLine (ví dụ: systemd)
+          File văn bản (Thông tin hệ thống)
+            - cpuinfo (Thông tin vi xử lý)
+            - meminfo (Thông tin RAM/Memory)
+            - uptime (Thời gian HĐH hoạt động)
+            - version (Phiên bản HĐH)
+            - partitions (Thông tin phân vùng ổ cứng)
+  - /sys (System File System)
+      + Chứa thông tin về phần cứng
+          Màn hình
+          Keyboard
+          CPU
+          Ổ cứng
+      + Chứa thông tin MOdule hạt nhân (Kernel)
+      + Không có thông tin Tiến trình (Process)
+      + Ví dụ truy cập
+          CD /sys/fs/xfs
+          Xem stats (thống kê phần cứng/ổ cứng)
